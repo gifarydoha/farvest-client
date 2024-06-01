@@ -1,9 +1,16 @@
+import Banner from "@/components/Home/Banner/Banner";
+import { Resources } from "@/components/Home/Resources/Resources";
+import Works from "@/components/Home/Works/Works";
+import Navbar from "@/components/shared/Navbar";
 import React from "react";
 
 const page = () => {
   return (
     <section>
-      <h2 className="text-center text-3xl">Productive application</h2>
+      <Navbar />
+      <Banner />
+      <Works />
+      <Resources />
     </section>
   );
 };
