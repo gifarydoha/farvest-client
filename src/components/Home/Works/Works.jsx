@@ -44,7 +44,7 @@ const FeatureItem = ({ title, description, icon }) => {
         </span>
       </div>
       <div className="space-y-1">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+        <h2 className="font-title text-xl font-semibold text-gray-950 dark:text-white">
           {title}
         </h2>
         <p className="text-gray-700 dark:text-gray-300">{description}</p>
@@ -84,7 +84,7 @@ const Works = () => {
           <span className="text-blue-600 dark:text-blue-400 font-semibold pl-6 relative before:absolute before:top-1/2 before:left-0 before:w-5 before:h-px before:bg-blue-600 dark:before:bg-blue-500 before:rounded-full">
             Farvest
           </span>
-          <h1 className="font-bold text-gray-800 dark:text-white text-3xl">
+          <h1 className="font-title font-bold text-gray-800 dark:text-white text-3xl">
             Empowering Bangladeshi Farmers to Reduce Post-Harvest Loss
           </h1>
         </div>

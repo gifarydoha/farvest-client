@@ -1,7 +1,12 @@
-import { Inter } from "next/font/google";
+import { Raleway, Marcellus } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
+const marcellus = Marcellus({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-marcellus",
+});
 
 export const metadata = {
   title: "Farvest",
@@ -11,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${raleway.className} ${marcellus.variable}`}>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }

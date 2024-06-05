@@ -1,0 +1,8 @@
+.swiper3 .swiper-button-next:after,
+.swiper-button-prev:after {
+  color: #fff;
+  font-weight: bold;
+  --swiper-navigation-size: 1rem;
+}
+
+
