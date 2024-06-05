@@ -1,0 +1,9 @@
+.skill-bg {
+    /* background: fixed; */
+    /* background-size: 100%; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to bottom, #25252580, #25252580),
+      url("../../../../public/images/background/pexels-elina-sazonova-1838545.jpg");
+  }
+  

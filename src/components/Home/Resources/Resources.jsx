@@ -50,12 +50,11 @@ const Resources = () => {
         {/*  */}
         <div className="mb-16 md:w-2/3 lg:w-1/2">
           <h2 className="font-title text-4xl font-semibold text-gray-900 dark:text-white">
-            Meet My Team
+            Read latest guides
           </h2>
           <p className="mt-4 text-gray-600 dark:text-gray-300">
-            Meet the incredible team — a dedicated group of professionals who
-            bring a wealth of expertise and a passion for excellence to every
-            project.
+            Stay Informed with Farvest&apos;s Latest Insights on Post-Harvest
+            Techniques and Best Practices
           </p>
         </div>
         {/* swiper */}
@@ -73,7 +72,7 @@ const Resources = () => {
           }}
           breakpoints={{
             1024: {
-              slidesPerView: 1,
+              slidesPerView: 2,
             },
           }}
           modules={[Navigation, Keyboard, Autoplay]}
@@ -92,7 +91,7 @@ const Resources = () => {
                 <Link href="#">
                   <div className="group relative space-y-6  overflow-hidden rounded-3xl">
                     <Image
-                      className="ransition mx-auto h-[36rem] lg:h-[44rem] w-full object-cover object-center grayscale duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                      className="ransition mx-auto h-[36rem] lg:h-[40rem] w-full object-cover object-center grayscale duration-500 group-hover:scale-105 group-hover:grayscale-0"
                       src={items?.image}
                       alt="team"
                       loading="lazy"
@@ -101,14 +100,17 @@ const Resources = () => {
                     />
                     <div className="absolute inset-x-0 bottom-0 mt-auto h-max translate-y-24 bg-gray-800 px-8 py-6 transition delay-300 duration-300 ease-in-out group-hover:translate-y-0 dark:bg-white">
                       <div>
-                        <h4 className="font-title font-semibold text-white dark:text-gray-700 text-sm sm:text-lg md:text-xl">
+                        <h4 className="font-title font-semibold text-white dark:text-gray-700 text-sm sm:text-lg xl:text-xl">
                           {items?.title}
                         </h4>
-                        <span className="block text-sm text-gray-500 lg:hidden">
-                          {items?.subtitle.substring(0, 45)}
+                        <span className="block text-sm text-gray-400 lg:hidden">
+                          {items?.subtitle.substring(0, 45)}...
                         </span>
-                        <span className="text-xs md:text-sm text-gray-500 hidden lg:block">
-                          {items?.subtitle.substring(0, 100)}...
+                        <span className="text-xs md:text-sm text-gray-400 hidden lg:block xl:hidden">
+                          {items?.subtitle.substring(0, 60)}...
+                        </span>
+                        <span className="text-xs md:text-sm text-gray-400 hidden xl:block">
+                          {items?.subtitle.substring(0, 80)}...
                         </span>
                       </div>
                     </div>
