@@ -163,7 +163,7 @@ const Footer = () => {
                     </li>
                     <li>
                       <a href="#" className="transition hover:text-cyan-600">
-                        Payment Policy
+                        Terms of Services
                       </a>
                     </li>
                   </ul>

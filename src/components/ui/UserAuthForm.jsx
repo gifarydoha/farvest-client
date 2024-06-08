@@ -55,7 +55,12 @@ const UserAuthForm = ({ className, ...props }) => {
           </span>
         </div>
       </div> */}
-      <Button type="button" variant="outline" disabled={isLoading} className="">
+      <Button
+        type="button"
+        variant="outline"
+        disabled={isLoading}
+        className="font-semibold"
+      >
         {isLoading ? (
           <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />
         ) : (
