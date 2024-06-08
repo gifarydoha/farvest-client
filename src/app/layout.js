@@ -1,5 +1,7 @@
 import { Raleway, Marcellus } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const raleway = Raleway({ subsets: ["latin"] });
 const marcellus = Marcellus({
@@ -17,7 +19,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${raleway.className} ${marcellus.variable}`}>
-        <main>{children}</main>
+        <main>
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );
