@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
         <div className="container m-auto space-y-8 px-6 text-gray-600 dark:text-gray-400 md:px-12 lg:px-20">
           <div className="grid grid-cols-8 gap-6 md:gap-0">
             <div className="col-span-8 border-r border-gray-100 dark:border-gray-800 md:col-span-2 lg:col-span-3">
-              <div className="flex items-center justify-between gap-6 border-b border-white dark:border-gray-800 py-6 md:block md:space-y-6 md:border-none md:py-0">
+              <div className="flex flex-col items-center justify-between gap-6 border-b border-white dark:border-gray-800 py-6 md:block md:space-y-6 md:border-none md:py-0">
                 {/* <Image
                   src="images/logo.svg"
                   alt="logo tailus"
@@ -29,13 +30,30 @@ const Footer = () => {
                   height="42"
                   className="w-32 dark:brightness-200 dark:grayscale"
                 /> */}
-                <h2>Farvest</h2>
-                <div className="flex gap-6">
+                <div className="flex min-w-max items-center">
+                  <Link
+                    href="/"
+                    className="flex  items-center gap-x-4 text-3xl font-title font-semibold text-gray-700 dark:text-gray-300"
+                  >
+                    Farvest
+                  </Link>
+                </div>
+                {/* <h2>Farvest</h2> */}
+                {/* footer paragraph */}
+                <div className="flex gap-6 max-w-md">
+                  <p>
+                    We connect you with reliable storage facilities and provide
+                    guidance to maximize the lifespan of your harvest. Reduce
+                    spoilage, optimize storage conditions, and minimize losses.
+                  </p>
+                </div>
+                {/* social icons */}
+                {/* <div className="flex gap-6">
                   <a
                     href="#"
                     target="blank"
                     aria-label="github"
-                    className="hover:text-cyan-600"
+                    className="hover:text-green-600"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +70,7 @@ const Footer = () => {
                     href="#"
                     target="blank"
                     aria-label="twitter"
-                    className="hover:text-cyan-600"
+                    className="hover:text-green-600"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +87,7 @@ const Footer = () => {
                     href="#"
                     target="blank"
                     aria-label="medium"
-                    className="hover:text-cyan-600"
+                    className="hover:text-green-600"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +100,7 @@ const Footer = () => {
                       <path d="M9.025 8c0 2.485-2.02 4.5-4.513 4.5A4.506 4.506 0 0 1 0 8c0-2.486 2.02-4.5 4.512-4.5A4.506 4.506 0 0 1 9.025 8zm4.95 0c0 2.34-1.01 4.236-2.256 4.236-1.246 0-2.256-1.897-2.256-4.236 0-2.34 1.01-4.236 2.256-4.236 1.246 0 2.256 1.897 2.256 4.236zM16 8c0 2.096-.355 3.795-.794 3.795-.438 0-.793-1.7-.793-3.795 0-2.096.355-3.795.794-3.795.438 0 .793 1.699.793 3.795z" />
                     </svg>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="col-span-8 md:col-span-6 lg:col-span-5">
@@ -93,22 +111,22 @@ const Footer = () => {
                   </h6>
                   <ul className="mt-4 list-inside space-y-4">
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         About Us
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Contact Us
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Find Storage
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Team
                       </a>
                     </li>
@@ -120,22 +138,22 @@ const Footer = () => {
                   </h6>
                   <ul className="mt-4 list-inside space-y-4">
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Guide
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Storage
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Enterprise
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Partners
                       </a>
                     </li>
@@ -147,22 +165,22 @@ const Footer = () => {
                   </h6>
                   <ul className="mt-4 list-inside space-y-4">
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Privacy Policy
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Terms & Condition
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Help
                       </a>
                     </li>
                     <li>
-                      <a href="#" className="transition hover:text-cyan-600">
+                      <a href="#" className="transition hover:text-green-600">
                         Terms of Services
                       </a>
                     </li>

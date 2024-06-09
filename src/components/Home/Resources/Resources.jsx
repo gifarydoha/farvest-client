@@ -98,7 +98,7 @@ const Resources = () => {
                       width="640"
                       height="805"
                     />
-                    <div className="absolute inset-x-0 bottom-0 mt-auto h-max translate-y-24 bg-gray-800 px-8 py-6 transition delay-300 duration-300 ease-in-out group-hover:translate-y-0 dark:bg-white">
+                    <div className="absolute inset-x-0 bottom-0 mt-auto h-max translate-y-24 bg-green-900 px-8 py-6 transition delay-300 duration-300 ease-in-out group-hover:translate-y-0 dark:bg-white">
                       <div>
                         <h4 className="font-title font-semibold text-white dark:text-gray-700 text-sm sm:text-lg xl:text-xl">
                           {items?.title}

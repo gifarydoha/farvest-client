@@ -28,9 +28,8 @@ const signIn = () => {
           <div className="relative z-20 mt-auto ">
             <blockquote className="space-y-2">
               <p className="text-xl">
-                &ldquo;Towards a Future of Full Harvests and Sustainable
-                Agriculture. Join us to ensure no harvest goes to waste and to
-                keep produce fresh.&rdquo;
+                &ldquo;We Connect Farmers to Harvester. Join us to ensure no
+                harvest goes to waste and to keep produce fresh.&rdquo;
               </p>
               {/* <footer className="text-sm">Sofia Davis</footer> */}
             </blockquote>

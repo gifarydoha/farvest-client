@@ -18,7 +18,7 @@ const Navbar = () => {
             >
               {/* icon */}
               {/* <div className="flex items-center -space-x-3 font-semibold">
-                <span className="h-6 aspect-square bg-emerald-600 dark:bg-emerald-400 rounded-full flex" />
+                <span className="h-6 aspect-square bg-green-600 dark:bg-green-400 rounded-full flex" />
                 <span className="h-6 aspect-square bg-gray-600 dark:bg-white rounded-full flex" />
               </div> */}
               Farvest
@@ -98,7 +98,7 @@ const Navbar = () => {
               onClick={() => {
                 toggleNavbar();
               }}
-              className="p-3 rounded-full bg-emerald-600 dark:bg-emerald-500 outline-none w-12 aspect-square flex flex-col relative justify-center items-center"
+              className="p-3 rounded-full bg-green-600 dark:bg-green-500 outline-none w-12 aspect-square flex flex-col relative justify-center items-center"
             >
               <span className="sr-only">toggle navbar</span>
               <span
