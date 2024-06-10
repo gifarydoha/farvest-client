@@ -78,7 +78,7 @@ const Works = () => {
           <div className="w-full md:w-1/2 md:flex-1 lg:flex xl:w-[45%] shadow-xl rounded-md">
             <div className="relative w-full lg:w-full h-full">
               <Image
-                src="/works.jpg"
+                src="/images/rice-cutting.webp"
                 width={2240}
                 height={1400}
                 alt="works"
