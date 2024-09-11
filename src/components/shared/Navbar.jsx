@@ -46,7 +46,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/resources"
                   className="transition ease-linear hover:text-gray-900 dark:hover:text-white"
                 >
                   Resources
