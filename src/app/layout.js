@@ -1,5 +1,6 @@
 import { Raleway, Marcellus } from "next/font/google";
 import "./globals.css";
+import AuthProvider from "@/services/AuthProvider";
 // import Navbar from "@/components/shared/Navbar";
 // import Footer from "@/components/shared/Footer";
 
@@ -19,11 +20,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${raleway.className} ${marcellus.variable}`}>
-        <main>
-          {/* <Navbar /> */}
-          {children}
-          {/* <Footer /> */}
-        </main>
+        <AuthProvider>
+          <main>
+            {/* <Navbar /> */}
+            {children}
+            {/* <Footer /> */}
+          </main>
+        </AuthProvider>
       </body>
     </html>
   );
