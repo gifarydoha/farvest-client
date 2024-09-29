@@ -6,25 +6,24 @@ import { LoaderCircle } from "lucide-react";
 import { Button } from "./button";
 import { Label } from "./label";
 import { Input } from "./input";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const UserAuthForm = ({ className, ...props }) => {
-  const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { data: session, status } = useSession();
+  const router = useRouter(); // This should work now
 
   useEffect(() => {
     if (status === "authenticated") {
-      console.log("User is authenticated", session);
+      router.push("/profile");
     }
-  }, [status, session]);
-
-  console.log(session, status);
+  }, [status, session, router]);
 
   async function onSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
-
     setTimeout(() => {
       setIsLoading(false);
     }, 3000);
