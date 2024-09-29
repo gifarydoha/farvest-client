@@ -23,7 +23,7 @@ const signIn = () => {
       >
         <div className="relative hidden h-full flex-col  p-10 text-white lg:flex dark:border-r">
           <div className="relative z-20 flex items-center font-semibold text-2xl text-black">
-            <Link href="/">Farvest</Link>
+            <Link href="http://localhost:3000/">Farvest</Link>
           </div>
           <div className="relative z-20 mt-auto ">
             <blockquote className="space-y-2">

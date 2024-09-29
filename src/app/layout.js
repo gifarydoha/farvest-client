@@ -20,13 +20,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${raleway.className} ${marcellus.variable}`}>
-        <AuthProvider>
-          <main>
+        <main>
+          <AuthProvider>
             {/* <Navbar /> */}
             {children}
             {/* <Footer /> */}
-          </main>
-        </AuthProvider>
+          </AuthProvider>
+        </main>
       </body>
     </html>
   );
