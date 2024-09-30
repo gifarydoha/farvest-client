@@ -31,7 +31,6 @@ const ProfilePage = () => {
   if (status === "loading" || !session) {
     return <p>Loading...</p>; // Or a more sophisticated loading state
   }
-  console.log(session);
 
   // Now render the profile content
   return (

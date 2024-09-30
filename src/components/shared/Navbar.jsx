@@ -3,6 +3,7 @@ import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import profilePic from "/public/images/profile-pic.png";
 
 const Navbar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
@@ -105,7 +106,7 @@ const Navbar = () => {
                   className="flex items-center justify-center relative z-10"
                 >
                   <Image
-                    src={session.user.image}
+                    src={session.user.image ? session.user.image : profilePic}
                     alt="user-avatar-image"
                     className="border-4 border-solid border-white rounded-full object-cover mr-6"
                     height="44"

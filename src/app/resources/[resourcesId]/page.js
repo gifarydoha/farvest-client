@@ -2,7 +2,9 @@ import Footer from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Image from "next/image";
 
-export default function resourceDetails() {
+export default function resourceDetails({ params }) {
+  const { id, title, image, description } = params;
+  console.log(id);
   return (
     <>
       <Navbar />
@@ -13,7 +15,7 @@ export default function resourceDetails() {
               <header className="mx-auto mt-20 max-w-screen-lg rounded-t-lg bg-white pt-16 text-center shadow-lg">
                 <p className="text-gray-500">Published April 4, 2022</p>
                 <h1 className="mt-2 text-4xl font-bold text-gray-900 sm:text-5xl">
-                  Why quit now?
+                  {title}
                 </h1>
                 <p className="mt-6 text-lg text-gray-700">
                   You&apos;ve come way farther than you expected
@@ -36,7 +38,7 @@ export default function resourceDetails() {
                   width="300"
                   height="300"
                   className="-z-10 absolute top-0 left-0 mt-10 h-96 w-full object-cover"
-                  src="https://images.unsplash.com/photo-1504672281656-e4981d70414b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                  src="https://images.unsplash.com/photo-1476362555312-ab9e108a0b7e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                   alt=""
                 />
               </header>

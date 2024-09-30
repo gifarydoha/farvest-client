@@ -10,11 +10,7 @@ const guides = [
     title: "Six Tips on How to Dry Grains: A Basic Guide",
     image:
       "https://res.cloudinary.com/dpeoxmblg/image/upload/v1726120802/farvest/guides/ypqh3wnam6izulp5g0qm.jpg",
-    description: `Drying grains has been part of agricultural traditions for thousands of years. This step ensures that crops are preserved so even if it’s not the harvesting season, people will still have food.
-
- 
-
-In today’s setting, drying grains has that same purpose. However, traditional grain drying techniques still have issues that can affect your grains' quality. Mold growth, insect damage, and even loss of germination can all occur if you don't dry your grains correctly. 
+    description: `Drying grains has been part of agricultural traditions for thousands of years. This step ensures that crops are preserved so even if it’s not the harvesting season, people will still have food. In today’s setting, drying grains has that same purpose. However, traditional grain drying techniques still have issues that can affect your grains' quality. Mold growth, insect damage, and even loss of germination can all occur if you don't dry your grains correctly. 
 
  
 
@@ -118,7 +114,7 @@ Applying these basic steps for drying your grains can help retain quality and qu
 ];
 
 const resources = () => {
-  console.log(guides);
+  // console.log(guides);
   return (
     <>
       <Navbar />
@@ -142,7 +138,7 @@ const resources = () => {
             {/*  */}
             {guides.map((guide) => (
               <Link
-                href={"/resources/" + guide.id}
+                href={`/resources/${guide.id}`}
                 key={guide.id}
                 className="grid gap-12 divide-y divide-gray-300 dark:divide-gray-800 children:py-5 first:pt-0 last:pb-0"
               >
