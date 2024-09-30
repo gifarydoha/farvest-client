@@ -1,5 +1,6 @@
 "use client";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -97,9 +98,24 @@ const Navbar = () => {
                   </span>
                 </Link>
               )}
+
               {status === "authenticated" && (
                 <Link
-                  href="#"
+                  href="/profile"
+                  className="flex items-center justify-center relative z-10"
+                >
+                  <Image
+                    src={session.user.image}
+                    alt="user-avatar-image"
+                    className="border-4 border-solid border-white rounded-full object-cover mr-6"
+                    height="44"
+                    width="44"
+                  />
+                </Link>
+              )}
+              {status === "authenticated" && (
+                <Link
+                  href="/"
                   onClick={() => signOut()}
                   className="flex justify-center gap-x-3 items-center text-red-500 dark:text-gray-300 hover:text-red-600 dark:hover:text-white
                         border-b bg-gray-700 dark:border-blue-300 hover:border-b-gray-900 dark:hover:border-b-white bg-transparent"
