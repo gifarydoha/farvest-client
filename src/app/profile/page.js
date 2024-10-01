@@ -61,7 +61,7 @@ const ProfilePage = () => {
                   Edit Profile
                 </button>
                 <button className="rounded-full border border-solid border-emerald-600 bg-emerald-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-emerald-700 hover:border-emerald-700">
-                  Book a Storage
+                  Find a Storage
                 </button>
               </div>
             </div>

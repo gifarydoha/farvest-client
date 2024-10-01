@@ -22,24 +22,28 @@ const projectsData = [
     title: "Six Tips on How to Dry Grains: A Basic Guide",
     subtitle:
       "Drying grains has been part of agricultural traditions for thousands of years. This ensures that crops are preserved so even if it&apos;s not the harvesting season, people will still have food.",
+    link: "/resources/1",
   },
   {
     image: riceWeevils,
     title: "How to Prevent Rice Weevils in Commodities",
     subtitle:
       "Insect infestations in stored agricultural commodities can bring irreparable damage, resulting in billions of dollars in post-harvest losses every year.",
+    link: "/resources/4",
   },
   {
     image: fourTips,
     title: "4 Tips to Avoid Mold Growth in Stored Grains",
     subtitle:
       "Mold growth in dried food such as grains, maize, or rice is not an appetizing sight. Farmers and handlers detest mold because it means their products are tainted and this results in a loss in their profits.",
+    link: "/resources/3",
   },
   {
     image: benifits,
     title: "Benefits of a Good Storage System for Rice Grains",
     subtitle:
       "Rice grains such as wheat are a great source of energy and nutrients like carbohydrates, protein, vitamin E, B vitamins, magnesium and zinc.",
+    link: "/resources/2",
   },
 ];
 
@@ -88,7 +92,7 @@ const Resources = () => {
                 key={index}
                 className="group relative flex items-center justify-center overflow-hidden rounded-xl duration-300 ease-in"
               >
-                <Link href="#">
+                <Link href={items?.link}>
                   <div className="group relative space-y-6  overflow-hidden rounded-3xl">
                     <Image
                       className="ransition mx-auto h-[36rem] lg:h-[40rem] w-full object-cover object-center grayscale duration-500 group-hover:scale-105 group-hover:grayscale-0"
