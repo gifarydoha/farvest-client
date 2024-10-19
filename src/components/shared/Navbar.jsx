@@ -60,7 +60,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/about"
                   className="transition ease-linear hover:text-gray-900 dark:hover:text-white"
                 >
                   About
@@ -68,7 +68,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/contact"
                   className="transition ease-linear hover:text-gray-900 dark:hover:text-white"
                 >
                   Contact

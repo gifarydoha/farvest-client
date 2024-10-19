@@ -41,7 +41,7 @@ export default function Banner() {
             </p>
             <div className="flex justify-center">
               <Link
-                href="#"
+                href="/storages"
                 className="px-8 h-12 rounded-full flex items-center gap-x-3 bg-green-500 text-white hover:bg-green-600"
               >
                 Find Storage

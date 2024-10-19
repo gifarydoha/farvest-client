@@ -1,14 +1,11 @@
-// app/api/auth/[...nextauth]/route.js
-
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb";
-import bcrypt from "bcryptjs";
 
 const handler = NextAuth({
   session: {
-    strategy: "jwt", // Using JWT sessions
+    strategy: "jwt",
   },
   providers: [
     GoogleProvider({
@@ -16,51 +13,56 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  pages: {
-    signIn: "/sign-in", // Path to the custom sign-in page
-    // You can add more custom pages as needed
-  },
-  adapter: MongoDBAdapter(clientPromise), // MongoDB adapter to store user info
-  secret: process.env.NEXTAUTH_SECRET, // Secret for token encryption
+  adapter: MongoDBAdapter(clientPromise),
+  secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async signIn({ user, account, profile }) {
-      // Check if the user already exists in the users collection
+    async signIn({ user, account, profile, query }) {
       const client = await clientPromise;
-      const db = client.db("farvestDB"); // Replace 'mydatabase' with your actual DB name
+      const db = client.db("farvestDB");
 
-      // Look for the user by Google ID or email
+      // Check if the role was provided in the query
+      const role = query?.role || "farmer"; // Default to farmer if no role is provided
+
+      // Check if the user already exists
       const existingUser = await db
         .collection("users")
         .findOne({ email: profile.email });
 
       if (!existingUser) {
-        // If the user does not exist, insert a new user
+        // If user does not exist, create new user with the role
         await db.collection("users").insertOne({
           name: profile.name,
           email: profile.email,
-          image: profile.picture, // Optional: User's Google profile picture
+          image: profile.picture,
+          role: role, // Store the role in the user's document
           createdAt: new Date(),
-          // You could also store additional Google data if needed
         });
+      } else {
+        // Update the role if user already exists and role is different
+        if (existingUser.role !== role) {
+          await db
+            .collection("users")
+            .updateOne({ email: profile.email }, { $set: { role: role } });
+        }
       }
 
-      return true; // Return true to allow sign-in
+      return true;
     },
     async session({ session, token }) {
-      // Attach user ID to the session
       session.user.id = token.sub;
+      session.user.role = token.role; // Add the role to the session
       return session;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account, profile }) {
       if (user) {
-        token.sub = user.id; // Attach user ID to the token on first sign in
+        token.sub = user.id; // Attach user ID to the token
+        token.role = user.role; // Attach user role to the token
       }
       return token;
     },
   },
-  debug: process.env.NODE_ENV === "development", // Enable debug mode in development
+  debug: process.env.NODE_ENV === "development",
 });
 
-// Export both GET and POST handlers
 export const GET = handler;
 export const POST = handler;
