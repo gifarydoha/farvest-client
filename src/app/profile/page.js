@@ -1,8 +1,8 @@
 // app/profile/page.js (or wherever your profile component is located)
 
-"use client"; // Ensure this component runs on the client side
+"use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation"; // Import from next/navigation
 import Navbar from "@/components/shared/Navbar";
@@ -14,25 +14,62 @@ import profilePic from "/public/images/profile-pic.png";
 const ProfilePage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [users, setUsers] = useState([]);
+  const [storages, setStorages] = useState([]);
 
   useEffect(() => {
     if (status === "loading") {
-      // Optionally handle loading state if needed
       return;
     }
 
     if (!session) {
-      // If there's no session, redirect to the sign-in page
-      router.push("/sign-in"); // Adjust this path as necessary
+      router.push("/sign-in");
+      return;
     }
+
+    // Fetch users from the Next.js API route
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch("/api/users"); // Ensure to include the leading slash
+        if (!response.ok) {
+          throw new Error("Failed to fetch users"); // Throw an error if response is not ok
+        }
+        const data = await response.json();
+        setUsers(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
   }, [session, status, router]);
 
   // Render nothing or a loading indicator while redirecting
   if (status === "loading" || !session) {
-    return <p>Loading...</p>; // Or a more sophisticated loading state
+    return <p>Loading...</p>;
   }
 
-  // Now render the profile content
+  const currentUser = users.find((user) => user.email === session.user.email);
+
+  const fetchStorages = async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:5000/bookings/${userId}`); // Adjust URL as needed
+      if (!response.ok) {
+        throw new Error("Failed to fetch storages"); // Throw an error if response is not ok
+      }
+      const data = await response.json();
+      setStorages(data);
+    } catch (error) {
+      console.error("Error fetching storages:", error);
+    }
+  };
+
+  if (currentUser) {
+    if (currentUser.role === "farmer") {
+      fetchStorages(currentUser._id);
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -57,12 +94,24 @@ const ProfilePage = () => {
             </div>
             <div className="flex flex-col sm:flex-row max-sm:gap-5 items-end justify-between mb-5">
               <div className="flex items-center gap-4">
-                <button className="rounded-full border border-solid border-gray-300 bg-gray-50 py-3 px-4 text-sm font-semibold text-gray-900 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-50 hover:bg-gray-100 hover:border-gray-300">
+                {/* <button className="rounded-full border border-solid border-gray-300 bg-gray-50 py-3 px-4 text-sm font-semibold text-gray-900 shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-50 hover:bg-gray-100 hover:border-gray-300">
                   Edit Profile
-                </button>
-                <button className="rounded-full border border-solid border-emerald-600 bg-emerald-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-emerald-700 hover:border-emerald-700">
-                  Find a Storage
-                </button>
+                </button> */}
+                {currentUser && currentUser.role === "farmer" && (
+                  <Link href="/storages">
+                    <button className="rounded-full border border-solid border-emerald-600 bg-emerald-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-emerald-700 hover:border-emerald-700">
+                      Find a Storage
+                    </button>
+                  </Link>
+                )}
+
+                {currentUser && currentUser.role === "provider" && (
+                  <Link href="/create-storage">
+                    <button className="rounded-full border border-solid border-emerald-600 bg-emerald-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-emerald-700 hover:border-emerald-700">
+                      Create a Storage
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
             <h3 className="text-center font-manrope font-bold text-3xl leading-10 text-gray-900 mb-3">
@@ -224,6 +273,34 @@ const ProfilePage = () => {
                 </svg>
               </Link>
             </div>
+            {/* view storage */}
+            {currentUser && currentUser.role === "farmer" && (
+              <section className="pt-36 grid grid-cols-1 md:grid-cols-3 gap-10">
+                {storages && storages.length > 0 ? (
+                  storages.map((storage) => (
+                    <div
+                      key={storage._id}
+                      className="relative max-w-xs border border-solid border-gray-200 rounded-2xl transition-all duration-500"
+                    >
+                      <div className="p-4">
+                        <h4 className="text-base font-semibold text-gray-900 mb-2 capitalize transition-all duration-500">
+                          {storage.title}
+                        </h4>
+                        <p className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 mb-5">
+                          {storage.status === "booked"
+                            ? "You've selected this storage"
+                            : ""}
+                        </p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500">
+                    No storages available.
+                  </p>
+                )}
+              </section>
+            )}
           </div>
         </section>
       </section>

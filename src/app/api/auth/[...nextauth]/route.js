@@ -37,14 +37,15 @@ const handler = NextAuth({
           role: role, // Store the role in the user's document
           createdAt: new Date(),
         });
-      } else {
-        // Update the role if user already exists and role is different
-        if (existingUser.role !== role) {
-          await db
-            .collection("users")
-            .updateOne({ email: profile.email }, { $set: { role: role } });
-        }
       }
+      //  else {
+      //   // Update the role if user already exists and role is different
+      //   if (existingUser.role !== role) {
+      //     await db
+      //       .collection("users")
+      //       .updateOne({ email: profile.email }, { $set: { role: role } });
+      //   }
+      // }
 
       return true;
     },
