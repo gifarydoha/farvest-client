@@ -99,15 +99,23 @@ const ProfilePage = () => {
                 </button> */}
                 {currentUser && currentUser.role === "farmer" && (
                   <Link href="/storages">
-                    <button className="rounded-full border border-solid border-emerald-600 bg-emerald-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-emerald-700 hover:border-emerald-700">
+                    <button className="rounded-full border border-solid border-green-600 bg-green-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-green-700 hover:border-green-700">
                       Find a Storage
+                    </button>
+                  </Link>
+                )}
+
+                {currentUser && currentUser.role === "farmer" && (
+                  <Link href="/">
+                    <button className="rounded-full border border-solid border-blue-600 bg-blue-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-blue-700 hover:border-blue-700">
+                      Apply to be a provider
                     </button>
                   </Link>
                 )}
 
                 {currentUser && currentUser.role === "provider" && (
                   <Link href="/create-storage">
-                    <button className="rounded-full border border-solid border-emerald-600 bg-emerald-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-emerald-700 hover:border-emerald-700">
+                    <button className="rounded-full border border-solid border-green-600 bg-green-600 py-3 px-4 text-sm font-semibold text-white whitespace-nowrap shadow-sm shadow-transparent transition-all duration-500 hover:shadow-gray-200 hover:bg-green-700 hover:border-green-700">
                       Create a Storage
                     </button>
                   </Link>

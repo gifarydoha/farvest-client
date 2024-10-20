@@ -27,7 +27,7 @@ export default async function resourceDetails({ params }) {
       <section className="py-32">
         <div className="px-5 sm:px-10 md:px-12 lg:px-5 max-w-7xl mx-auto">
           <div className="img w-full mb-14"></div>
-          <section className="relative pt-20 pb-24 bg-emerald-600">
+          <section className="relative pt-20 pb-24 bg-green-600">
             <div className="w-full max-w-lg md:max-w-2xl lg:max-w-4xl px-5 lg:px-11 mx-auto max-md:px-4">
               <h1 className="text-white font-manrope font-semibold text-4xl min-[500px]:text-5xl leading-tight mb-8">
                 {title}

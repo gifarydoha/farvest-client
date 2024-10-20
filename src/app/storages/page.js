@@ -45,9 +45,9 @@ const Storages = () => {
                 </h4>
                 <p className="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 mb-5">
                   {" "}
-                  {storage.shortDescription}{" "}
+                  {storage.shortDescription.substring(0, 150)} ...
                 </p>
-                <button className="bg-emerald-600 shadow-sm rounded-full py-2 px-5 text-xs text-white font-semibold">
+                <button className="bg-green-600 shadow-sm rounded-full py-2 px-5 text-xs text-white font-semibold">
                   Select Storage
                 </button>
               </div>
