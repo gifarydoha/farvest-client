@@ -1,6 +1,7 @@
 import { Raleway, Marcellus } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/services/AuthProvider";
+import TrackReferrer from "@/components/TrackReferrer";
 // import Navbar from "@/components/shared/Navbar";
 // import Footer from "@/components/shared/Footer";
 
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <main>
           <AuthProvider>
             {/* <Navbar /> */}
+            <TrackReferrer />
             {children}
             {/* <Footer /> */}
           </AuthProvider>
